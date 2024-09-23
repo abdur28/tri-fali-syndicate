@@ -28,7 +28,7 @@ const Analysis = () => {
             icon: "/cost-breakdown.png",
             points: [
                 "Land Acquisition (Already Secured)",
-                "Construction Costs: ₦600 million (for materials, labor, and permits).",
+                "Construction Costs: ₦600-800 million (for materials, labor, and permits).",
                 "Marketing and Sales Costs: ₦30 million (for agents, marketing campaigns, and administrative costs).",
                 "Miscellaneous Costs: ₦20 million (contingency, legal, and operational expenses).",
                 "Total Projected Costs: ₦650 million.",
@@ -41,7 +41,7 @@ const Analysis = () => {
                 "Total Investment Needed: ₦600 million.",
                 "Projected Revenue: ₦1.2 billion.",
                 "Profit: ₦550 million.",
-                "Investor ROI: 30% or ₦180 million on an 80 million naira investment, within 12 months.",
+                "Investors ROI wil be starting from 15% on total investment, Reaching a maximum of 25% within 12 months.",
             ]
         },
         {

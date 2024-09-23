@@ -6,7 +6,7 @@ import SlideShow from "../SlideShow"
 
 const Description = () => {
     return (
-        <div className="w-full md:h-[150vh] h-[120vh] flex flex-col justify-center items-center">
+        <div className="w-full md:h-[160vh] h-[130vh] flex flex-col justify-center mt-20 items-center">
             <div className="w-full h-[300px] md:h-[800px] overflow-hidden">
                 <SlideShow />
             </div>
