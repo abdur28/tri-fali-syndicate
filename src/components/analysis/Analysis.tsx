@@ -31,14 +31,14 @@ const Analysis = () => {
                 "Construction Costs: ₦600-800 million (for materials, labor, and permits).",
                 "Marketing and Sales Costs: ₦30 million (for agents, marketing campaigns, and administrative costs).",
                 "Miscellaneous Costs: ₦20 million (contingency, legal, and operational expenses).",
-                "Total Projected Costs: ₦650 million.",
+                "Total Projected Costs: ₦600-800 million.",
             ]
         },
         {
             title: "Profit Projections",
             icon: "/profit-projection.png",
             points: [
-                "Total Investment Needed: ₦600 million.",
+                "Total Investment Needed: ₦600-800 million.",
                 "Projected Revenue: ₦1.2 billion.",
                 "Profit: ₦550 million.",
                 "Investors ROI wil be starting from 15% on total investment, Reaching a maximum of 25% within 12 months.",

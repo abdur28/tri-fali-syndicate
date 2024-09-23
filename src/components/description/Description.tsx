@@ -30,7 +30,7 @@ const Description = () => {
                         </li>
                         <li className="flex flex-row gap-2 h-full w-full items-center">
                             <div className="bg-orange-500 w-[10%] h-[1px]"></div>
-                            <p className="w-[90%]">{`Investor ROI: Ensure a 30% return on investment by strategically pricing and selling the units to buyers within a year of project completion.`}</p>
+                            <p className="w-[90%]">{`Investors ROI wil be starting from 15% on total investment, Reaching a maximum of 25% within 12 months.`}</p>
                         </li>
                      </ul>
                 </div>
