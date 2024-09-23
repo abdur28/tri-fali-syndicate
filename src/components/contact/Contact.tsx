@@ -7,7 +7,7 @@ const Contact = () => {
     const ref: any = useRef();
     const formRef: any = useRef();
     const isInView = useInView(ref, { margin: "-100px" });
-    const [loading, setLoading] = useState(false);
+    const loading = false;
 
     const variants = {
         initial: {

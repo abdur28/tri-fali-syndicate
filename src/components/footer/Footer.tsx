@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 const Footer = () => {
-    const aboutText = "Founded in 2022, Abali has quickly emerged as a leading regional oil marketing company in Africa. The company has made significant investments in the sourcing, transportation, storage, distribution, and marketing of fuels, kerosene, jet fuels, LPG, and lubricants for both industrial and automotive systems."
     return (
         <div className="w-full h-full flex flex-col gap-5">
             <div className="flex flex-col md:flex-row justify-center p-10 lg:mx-10 gap-5">
