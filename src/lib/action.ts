@@ -21,7 +21,7 @@ export const sendEmail = async (prevState: any, formData: any) => {
   
       const mailOptions = {
         from: `TRI FALI SYNDICATE <abdurrahmanidris235@gmail.com>`,
-        to: "abdurrahmanidris28@gmail.com",
+        to: "trifalisyndicate@gmail.com",
         subject: `${name} has sent you a message from Tri Fali Syndicate`,
         html: `<html>
         <p>Name: ${name}.</p><p>Email: ${email}.</p><p>Message: ${message}</p></html>`
