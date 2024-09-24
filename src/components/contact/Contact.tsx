@@ -1,13 +1,84 @@
 'use client'
 
+import { useAlert } from "@/hooks/useAlert";
+import { sendEmail } from "@/lib/action";
 import { motion, useInView } from "framer-motion"
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useFormState } from "react-dom";
+import Alert from "../Alert";
 
 const Contact = () => {
     const ref: any = useRef();
     const formRef: any = useRef();
     const isInView = useInView(ref, { margin: "-100px" });
-    const loading = false;
+
+    const [state, formAction] = useFormState(sendEmail, undefined);
+    const { show, showAlert, hideAlert, text, type } = useAlert();
+
+    const [form, setForm] = useState({ name: "", email: "", message: "", phone: ""})
+
+    const [loading, setLoading] = useState(false);
+
+    const sendingEmail = () => {
+        showAlert({
+            show: true,
+            text: "Sending emall...",
+            type: "success",
+        });
+        const formData = new FormData(formRef.current);
+        formData.append("name", form.name); 
+        formData.append("email", form.email); 
+        formData.append("message", form.message); 
+        formData.append("phone", form.phone); 
+        formAction(formData);
+    };
+
+    const handleChange = (e: any): void => {
+        const { name, value } = e.target;
+        setForm((prevForm) => ({ ...prevForm, [name]: value }));
+    };
+    
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        setLoading(true);
+        sendingEmail()
+    };
+
+    useEffect(() => {
+        if (state) {
+            hideAlert();
+            if (state.status === "success"){
+                showAlert({
+                    text: "Thank you for your message 😃",
+                    type: "success",
+                    show: true
+                });
+                setTimeout(() => {
+                hideAlert();
+                setForm({
+                    name: "",
+                    email: "",
+                    message: "",
+                    phone: "",
+                });
+                }, 5000);
+                setLoading(false);
+            
+            } else {
+
+                    showAlert({
+                        show: true,
+                        text: state.message,
+                        type: "danger",
+                    });
+                    setTimeout(() => {
+                    hideAlert();
+                    }, 5000);
+                    setLoading(false);
+                    // router.refresh()
+            }
+        }
+    },[state])
 
     const variants = {
         initial: {
@@ -25,7 +96,8 @@ const Contact = () => {
       };
 
     return (
-        <div className="w-full h-[100vh] md:h-[120vh] mt-20">
+        <div className="w-full h-[110vh] md:h-[120vh] mt-20">
+            {show && <Alert text={text} type={type} />}
             <div className="flex h-full w-full flex-col justify-center items-center gap-10">
                 <h1 className="md:text-9xl text-6xl text-center font-semibold text-gray-100">CONTACT</h1>
                 <div className="w-full h-full flex flex-col md:flex-row justify-center items-center gap-0 md:gap-10 ">
@@ -38,10 +110,16 @@ const Contact = () => {
                             {`Let's discuss more. We'd love to hear from you!`}
                         </p>
                         <p className=" lg:text-xl ">
-                            {`Email: info@example.com`}
+                            {`Abuja Address: No. 20 Sambrereo Crescent, Maitama, Abuja`}
+                        </p>
+                        <p className=" lg:text-xl ">
+                            {`Kano Address: Suite 5, No. 108 Dan Amarya Plaza, Maiduguri Road`}
+                        </p>
+                        <p className=" lg:text-xl ">
+                            {`Email: trifalisyndicate@gmail.com`}
                         </p>
                         <p className="lg:text-xl ">
-                            {`Phone: 080 1234 5678`}
+                            {`Phone: 08140028470, 08092503418, 08120791565`}
                         </p>
                    </motion.div>
                    <div className="w-full md:w-1/2 h-full flex justify-center items-center">
@@ -51,14 +129,14 @@ const Contact = () => {
                     variants={variants}
                     initial={{ y: 0, opacity: 1 }}
                     // whileInView="animate"
-                    // viewport={{ once: true }}
+                    viewport={{ once: true }}
                     >
                     <div className="w-full h-full">
                         <motion.div
                         className="phoneSvg"
-                        initial={{ opacity: 1 }}
-                        whileInView={{ opacity: 0 }}
-                        transition={{ delay: 3, duration: 1 }}
+                        initial={{ opacity: 1, x: 0 }}
+                        whileInView={{ opacity: 0, x: 500 }}
+                        transition={{ delay: 3, duration: 0.5, ease: "easeInOut" }}
                         >
                         <svg className="svg md:scale-75" viewBox="0 0 32.666 32.666">
                             <motion.path
@@ -91,42 +169,42 @@ const Contact = () => {
                         >
                             <form 
                             ref={formRef}
-                            // onSubmit={handleSubmit}
+                            onSubmit={handleSubmit}
                             action=""
                             className="flex flex-col w-[80vw] md:w-[40vw] h-full  rounded-2xl bg-gray-100 shadow-inner shadow-gray-500 p-5 gap-3"
                             >
                                 <h1 className="text-2xl font-semibold mb-5">Get in touch</h1>
                                 <input
                                 type="text"
-                                // value={form.name}
+                                value={form.name}
                                 name="name"
                                 placeholder="Full Name"
-                                // onChange={handleChange}
+                                onChange={handleChange}
                                 className="w-full p-3 rounded-lg border-2 border-gray-400"
                                 required
                                 />
                                 <input
                                 type="email"
-                                // value={form.email}
+                                value={form.email}
                                 name="email"
                                 placeholder="Email"
-                                // onChange={handleChange}
+                                onChange={handleChange}
                                 className="w-full p-3 rounded-lg border-2 border-gray-400"
                                 required
                                 />
                                 <input
                                 type="tel"
-                                // value={form.phone}
+                                value={form.phone}
                                 name="phone"
                                 placeholder="Phone Number"
-                                // onChange={handleChange}
+                                onChange={handleChange}
                                 className="w-full p-3 rounded-lg border-2 border-gray-400"
                                 required
                                 />
                                 <textarea
                                 placeholder="Message"
-                                // value={form.message}
-                                // onChange={handleChange}
+                                value={form.message}
+                                onChange={handleChange}
                                 name="message"
                                 rows={5}
                                 className="w-full p-3 rounded-lg border-2 border-gray-400"
@@ -134,7 +212,7 @@ const Contact = () => {
                                 />
                                 <button
                                 type="submit"
-                                // disabled={loading}
+                                disabled={loading}
                                 className={`${loading ? "bg-red-500 cursor-not-allowed" : "bg-black"} px-4 py-2 rounded-lg text-lg text-white font-semibold hover:bg-secondary transition-colors`}
                                 >
                                     {loading ? "Sending..." : "Send Message"}

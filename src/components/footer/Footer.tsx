@@ -28,10 +28,13 @@ const Footer = () => {
                     </div>
                     <div className="w-full h-full flex flex-col gap-2">
                         <h1 className="text-2xl font-semibold">Contact</h1>
-                        <p>Address: 1234, Sample Street, Lekki, Lagos, Nigeria</p>
-                        <a href="mailto:info@test.com" className="hover:text-orange-500">info@test.com</a>
-                        <div className="flex flex-col ">
-                        <a href="tel:+252770766835" className="hover:text-orange-500">+125 770 766 835</a>
+                        <p>Abuja Address: No. 20 Sambrereo Crescent, Maitama, Abuja</p>
+                        <p>Kano Address: Suite 5, No. 108 Dan Amarya Plaza, Maiduguri Road</p>
+                        <a href="mailto:trifalisyndicate@gmail.com" className="hover:text-orange-500">trifalisyndicate@gmail.com</a>
+                        <div className="flex flex-row gap-2 flex-wrap ">
+                        <a href="tel:+2348140028470" className="hover:text-orange-500">08140028470,</a>
+                        <a href="tel:+2348140028470" className="hover:text-orange-500">08140028470,</a>
+                        <a href="tel:+2348140028470" className="hover:text-orange-500">08140028470</a>
                         </div>
                         <div className="flex flex-row gap-6 mt-2">
                             <Image src="/facebook.png" alt="" className="cursor-pointer" width={16} height={16} />
