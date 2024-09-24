@@ -30,7 +30,7 @@ const Investment = () => {
                      <ul className="flex flex-col gap-5">
                         <li className="flex flex-row gap-2 h-full w-full items-center">
                             <div className="bg-orange-500 w-[10%] h-[1px]"></div>
-                            <p  className="w-[90%]">{`Investment Size: ₦40 million (minimum) to ₦800 million`}</p>
+                            <p  className="w-[90%]">{`Investment Size: ₦40 million (minimum) to ₦850 million`}</p>
                         </li>
                         <li className="flex flex-row gap-2 h-full w-full items-center">
                             <div className="bg-orange-500 w-[10%] h-[1px]"></div>
@@ -46,7 +46,7 @@ const Investment = () => {
                         </li>
                         <li className="flex flex-row gap-2 h-full w-full items-center">
                             <div className="bg-orange-500 w-[10%] h-[1px]"></div>
-                            <p className="w-[90%]">{`Construction Cost: ₦600-800 million (includes full amenities)`}</p>
+                            <p className="w-[90%]">{`Construction Cost: ₦650-850 million (includes full amenities)`}</p>
                         </li>
                         <li className="flex flex-row gap-2 h-full w-full items-center">
                             <div className="bg-orange-500 w-[10%] h-[1px]"></div>
