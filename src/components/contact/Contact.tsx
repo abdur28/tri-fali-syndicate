@@ -96,7 +96,7 @@ const Contact = () => {
       };
 
     return (
-        <div className="w-full h-[110vh] md:h-[120vh] mt-20">
+        <div className="w-full h-[120vh] md:h-[120vh] mt-20">
             {show && <Alert text={text} type={type} />}
             <div className="flex h-full w-full flex-col justify-center items-center gap-10">
                 <h1 className="md:text-9xl text-6xl text-center font-semibold text-gray-100">CONTACT</h1>
