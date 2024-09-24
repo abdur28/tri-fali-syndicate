@@ -12,7 +12,7 @@ export const useAlert = create<AlertState>((set) => ({
     text: "",
     type: "",
     show: false,
-    showAlert: ({ text, type, show }) => {
+    showAlert: ({ text, type }) => {
         set({ text, type, show: true });
     },
     hideAlert: () => set({ text: "", type: "", show: false }),
